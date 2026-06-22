@@ -69,6 +69,18 @@ These issues exist in the current codebase and will cause runtime errors:
 3. **`roleCheck.js`** — Never calls `next()` on successful role check, so requests hang
 4. **`user_controller.js` createUser** — Does not provide the required `username` field when creating users
 
+## Skills
+
+Project-specific guidelines in `.claude/skills/`:
+
+| Skill | File | Purpose |
+|-------|------|---------|
+| **Backend Testing** | `backend-testing.md` | Jest/Supertest patterns, factories, DB isolation, what to test |
+| **Web Testing** | `web-testing.md` | E2E (Playwright), API integration, page objects, critical flows |
+| **Frontend UI** | `frontend-ui.md` | Component architecture, Tailwind patterns, loading/error states, accessibility |
+
+Read the relevant skill before writing code in that area.
+
 ## Environment Variables (backend/.env)
 
 - `PORT` — Server port (default: 3000)
