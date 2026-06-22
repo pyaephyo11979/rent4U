@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*
+
+# SQLite databases (generated)
+*.db
+*.db-journal
+
+# Node
+node_modules/
+
+# Build output
+dist/
