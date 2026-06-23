@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -12,55 +7,87 @@ datasource db {
   provider = "sqlite"
 }
 
-model User{
-  id Int @id @default(autoincrement())
-  name String
-  username String @unique
-  email String @unique
-  roleId Int
+model User {
+  id             Int       @id @default(autoincrement())
+  name           String
+  username       String    @unique
+  email          String    @unique
+  password       String
   profilePicture String?
-  role Role @relation(fields: [roleId], references: [id])
-  password String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  houses House[]
-  rentedHouses House[] @relation("RentedHouses")
+  roleId         Int
+  role           Role      @relation(fields: [roleId], references: [id])
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  houses         House[]
+  rentedHouses   House[]   @relation("RentedHouses")
+  refreshTokens  RefreshToken[]
+  payments       Payment[]
 }
 
-model Role{
-  id Int @id @default(autoincrement())
-  name String
+model Role {
+  id        Int      @id @default(autoincrement())
+  name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  users User[]
+
+  users     User[]
 }
 
-model House{
-  id Int @id @default(autoincrement())
-  name String
-  city String
-  address String
-  price Float
-  description String
-  rooms Int
-  images Image[]
-  bathrooms Int
+model House {
+  id            Int       @id @default(autoincrement())
+  name          String
+  city          String
+  address       String
+  price         Float
+  description   String
+  rooms         Int
+  bathrooms     Int
   dateAvailable DateTime
-  rented Boolean @default(false)
-  rentedAt DateTime?
-  rentedUntil DateTime?
-  rentedById Int?
-  rentedBy User? @relation("RentedHouses", fields: [rentedById], references: [id])
-  isAvailable Boolean @default(true)
-  ownerId Int
-  owner User @relation(fields: [ownerId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  rented        Boolean   @default(false)
+  rentedAt      DateTime?
+  rentedUntil   DateTime?
+  rentedById    Int?
+  rentedBy      User?     @relation("RentedHouses", fields: [rentedById], references: [id])
+  isAvailable   Boolean   @default(true)
+  ownerId       Int
+  owner         User      @relation(fields: [ownerId], references: [id])
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  images        Image[]
+  payments      Payment[]
 }
 
 model Image {
-  id Int @id @default(autoincrement())
-  url String
+  id     Int    @id @default(autoincrement())
+  url    String
   houseId Int
-  house House @relation(fields: [houseId], references: [id])
+  house  House  @relation(fields: [houseId], references: [id], onDelete: Cascade)
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  revoked   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Payment {
+  id            Int      @id @default(autoincrement())
+  externalId    String?  @unique
+  userId        Int
+  user          User     @relation(fields: [userId], references: [id])
+  houseId       Int
+  house         House    @relation(fields: [houseId], references: [id])
+  amount        Float
+  currency      String   @default("MMK")
+  status        String   @default("pending")
+  provider      String   @default("sample")
+  metadata      String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
