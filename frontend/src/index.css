@@ -1,1 +1,15 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #059669;
+  --color-secondary-hover: #047857;
+  --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
+  --color-muted: #6b7280;
+  --color-muted-light: #f3f4f6;
+  --radius-card: 1rem;
+  --shadow-card: 0 1px 3px rgb(0 0 0 / 0.1);
+  --shadow-card-hover: 0 4px 12px rgb(0 0 0 / 0.15);
+}
