@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Layout } from '../components/layout/Layout';
 import { HouseGrid } from '../features/house/HouseGrid';
 import { HouseFilters } from '../features/house/HouseFilters';
@@ -7,6 +8,7 @@ import { useHouses } from '../hooks/useHouses';
 import { Button } from '../components/ui/Button';
 
 export function SearchPage() {
+  const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const initialParams: HouseSearchParams = {
@@ -40,7 +42,7 @@ export function SearchPage() {
   return (
     <Layout>
       <section className="px-4 md:px-8 lg:px-16 py-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Find a Place to Stay</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-6">{t('search.title')}</h1>
         <HouseFilters onFilter={handleFilter} initial={initialParams} />
         <HouseGrid houses={houses} loading={loading} error={error} onRetry={refetch} />
 
@@ -52,10 +54,10 @@ export function SearchPage() {
               disabled={!pagination.hasPrev}
               onClick={() => handlePageChange(pagination.page - 1)}
             >
-              Previous
+              {t('common.previous')}
             </Button>
             <span className="text-sm text-muted px-4">
-              Page {pagination.page} of {pagination.totalPages}
+              {t('common.pageOf', { page: pagination.page, totalPages: pagination.totalPages })}
             </span>
             <Button
               variant="secondary"
@@ -63,7 +65,7 @@ export function SearchPage() {
               disabled={!pagination.hasNext}
               onClick={() => handlePageChange(pagination.page + 1)}
             >
-              Next
+              {t('common.next')}
             </Button>
           </div>
         )}

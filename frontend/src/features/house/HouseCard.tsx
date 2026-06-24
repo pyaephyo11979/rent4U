@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { formatPrice } from '../../lib/utils';
 import { Card, CardImage, CardBody } from '../../components/ui/Card';
 
@@ -7,6 +8,7 @@ interface HouseCardProps {
 }
 
 export function HouseCard({ house }: HouseCardProps) {
+  const { t } = useTranslation();
   const imageUrl = house.images[0]?.url ?? '/placeholder-house.jpg';
 
   return (
@@ -21,16 +23,16 @@ export function HouseCard({ house }: HouseCardProps) {
             </div>
             {!house.isAvailable && (
               <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-danger">
-                Rented
+                {t('common.rented')}
               </span>
             )}
           </div>
           <div className="mt-3 flex items-center justify-between">
             <p className="font-bold text-gray-900">
-              {formatPrice(house.price)} <span className="text-sm font-normal text-muted">/ night</span>
+              {formatPrice(house.price)} <span className="text-sm font-normal text-muted">{t('common.perNight')}</span>
             </p>
             <p className="text-sm text-muted">
-              {house.rooms} {house.rooms === 1 ? 'room' : 'rooms'}
+              {house.rooms} {t('common.room', { count: house.rooms })}
             </p>
           </div>
         </CardBody>

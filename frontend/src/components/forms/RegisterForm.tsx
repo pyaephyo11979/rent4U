@@ -1,10 +1,12 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../hooks/useAuth';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 
 export function RegisterForm() {
+  const { t } = useTranslation();
   const { register } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: '', username: '', email: '', password: '' });
@@ -25,7 +27,7 @@ export function RegisterForm() {
     } catch (err: unknown) {
       const message =
         (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
-        'Registration failed. Please try again.';
+        t('registerForm.error');
       setError(message);
     } finally {
       setLoading(false);
@@ -40,42 +42,42 @@ export function RegisterForm() {
         </div>
       )}
       <Input
-        label="Full Name"
+        label={t('registerForm.fullName')}
         name="name"
         value={form.name}
         onChange={(e) => updateField('name', e.target.value)}
-        placeholder="John Doe"
+        placeholder={t('registerForm.namePlaceholder')}
         required
       />
       <Input
-        label="Username"
+        label={t('registerForm.username')}
         name="username"
         value={form.username}
         onChange={(e) => updateField('username', e.target.value)}
-        placeholder="johndoe"
+        placeholder={t('registerForm.usernamePlaceholder')}
         required
       />
       <Input
-        label="Email"
+        label={t('registerForm.email')}
         type="email"
         name="email"
         value={form.email}
         onChange={(e) => updateField('email', e.target.value)}
-        placeholder="you@example.com"
+        placeholder={t('registerForm.emailPlaceholder')}
         required
       />
       <Input
-        label="Password"
+        label={t('registerForm.password')}
         type="password"
         name="password"
         value={form.password}
         onChange={(e) => updateField('password', e.target.value)}
-        placeholder="Min. 8 characters"
+        placeholder={t('registerForm.passwordPlaceholder')}
         required
         minLength={8}
       />
       <Button type="submit" loading={loading} className="w-full">
-        Create account
+        {t('registerForm.submit')}
       </Button>
     </form>
   );

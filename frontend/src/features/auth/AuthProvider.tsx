@@ -16,17 +16,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const stored = localStorage.getItem('user');
+    if (!stored) {
+      setLoading(false);
+      return;
+    }
+
     authApi.refresh()
       .then(({ data }) => {
         setAccessToken(data.data.accessToken);
-        return authApi.refresh();
-      })
-      .then(() => {
-        const stored = localStorage.getItem('user');
-        if (stored) setUser(JSON.parse(stored));
+        setUser(JSON.parse(stored));
       })
       .catch(() => {
         setAccessToken(null);
+        setUser(null);
         localStorage.removeItem('user');
       })
       .finally(() => setLoading(false));

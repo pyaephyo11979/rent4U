@@ -45,11 +45,11 @@ const config = {
   rateLimit: {
     global: {
       windowMs: 15 * 60 * 1000,
-      max: parseInt(optional('RATE_LIMIT_GLOBAL_MAX', '100'), 10),
+      max: parseInt(optional('RATE_LIMIT_GLOBAL_MAX', '500'), 10),
     },
     auth: {
       windowMs: 15 * 60 * 1000,
-      max: parseInt(optional('RATE_LIMIT_AUTH_MAX', '5'), 10),
+      max: parseInt(optional('RATE_LIMIT_AUTH_MAX', '20'), 10),
     },
   },
 

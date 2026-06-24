@@ -1,0 +1,160 @@
+{
+  "common": {
+    "brand": "Rent4U",
+    "perNight": "/ night",
+    "room": "room",
+    "room_other": "rooms",
+    "bathroom": "bathroom",
+    "bathroom_other": "bathrooms",
+    "available": "Available",
+    "rented": "Rented",
+    "tryAgain": "Try again",
+    "previous": "Previous",
+    "next": "Next",
+    "pageOf": "Page {{page}} of {{totalPages}}",
+    "image": "Image {{number}}"
+  },
+  "nav": {
+    "browse": "Browse",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "login": "Log in",
+    "signup": "Sign up"
+  },
+  "footer": {
+    "copyright": "© {{year}} Rent4U. All rights reserved.",
+    "about": "About",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "home": {
+    "heroTitle": "Find your perfect vacation home",
+    "heroDescription": "Discover beautiful homes, villas, and apartments for your next getaway. Book directly with local hosts.",
+    "browseHomes": "Browse Homes",
+    "featuredListings": "Featured Listings",
+    "viewAll": "View all"
+  },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Log in to manage your bookings and listings.",
+    "noAccount": "Don't have an account?",
+    "signupLink": "Sign up"
+  },
+  "register": {
+    "title": "Create an account",
+    "subtitle": "Join Rent4U to start booking or listing homes.",
+    "hasAccount": "Already have an account?",
+    "loginLink": "Log in"
+  },
+  "search": {
+    "title": "Find a Place to Stay"
+  },
+  "houseDetail": {
+    "notFound": "Not Found",
+    "notFoundMessage": "The property you're looking for doesn't exist.",
+    "browseAll": "Browse all properties",
+    "loginToBook": "Log in to book this property",
+    "loginLink": "Log in",
+    "aboutThisPlace": "About this place",
+    "hostedBy": "Hosted by",
+    "availableFrom": "Available from {{date}}"
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{name}}",
+    "manageBookingsAndListings": "Manage your bookings and listings.",
+    "manageBookings": "Manage your bookings.",
+    "myListings": "My Listings",
+    "newListing": "+ New Listing",
+    "myBookings": "My Bookings",
+    "noBookings": "No bookings yet.",
+    "createNewListing": "Create New Listing",
+    "failedLoadListings": "Failed to load listings",
+    "failedLoadBookings": "Failed to load bookings"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "message": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go Home"
+  },
+  "loginForm": {
+    "email": "Email",
+    "password": "Password",
+    "submit": "Log in",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "error": "Login failed. Please check your credentials."
+  },
+  "registerForm": {
+    "fullName": "Full Name",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Create account",
+    "namePlaceholder": "John Doe",
+    "usernamePlaceholder": "johndoe",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "Min. 8 characters",
+    "error": "Registration failed. Please try again."
+  },
+  "houseForm": {
+    "propertyName": "Property Name",
+    "city": "City",
+    "address": "Address",
+    "pricePerNight": "Price per night (MMK)",
+    "rooms": "Rooms",
+    "bathrooms": "Bathrooms",
+    "availableFrom": "Available From",
+    "description": "Description",
+    "imageUrls": "Image URLs",
+    "add": "Add",
+    "createListing": "Create Listing",
+    "updateListing": "Update Listing",
+    "error": "Failed to save listing.",
+    "propertyNamePlaceholder": "Beachfront Villa",
+    "cityPlaceholder": "Ngapali",
+    "addressPlaceholder": "123 Beach Road",
+    "pricePlaceholder": "50000",
+    "roomsPlaceholder": "3",
+    "bathroomsPlaceholder": "2",
+    "descriptionPlaceholder": "Describe your property...",
+    "imageUrlPlaceholder": "https://example.com/image.jpg"
+  },
+  "filters": {
+    "search": "Search",
+    "city": "City",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price",
+    "rooms": "Rooms",
+    "sortBy": "Sort by",
+    "order": "Order",
+    "newest": "Newest",
+    "price": "Price",
+    "descending": "Descending",
+    "ascending": "Ascending",
+    "applyFilters": "Apply Filters",
+    "reset": "Reset",
+    "searchPlaceholder": "Name, description, city...",
+    "cityPlaceholder": "Any city",
+    "minPricePlaceholder": "0",
+    "maxPricePlaceholder": "Any"
+  },
+  "houseGrid": {
+    "noHousesFound": "No houses found"
+  },
+  "booking": {
+    "bookThisPlace": "Book this place",
+    "bookNow": "Book Now",
+    "notAvailable": "Not Available",
+    "disclaimer": "You won't be charged yet. Payment details will be shared after confirmation.",
+    "error": "Booking failed. Please try again.",
+    "pending": "pending",
+    "completed": "completed",
+    "failed": "failed",
+    "refunded": "refunded"
+  },
+  "language": {
+    "en": "English",
+    "my": "မြန်မာ"
+  }
+}

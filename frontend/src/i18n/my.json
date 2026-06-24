@@ -1,0 +1,160 @@
+{
+  "common": {
+    "brand": "Rent4U",
+    "perNight": "/ ည",
+    "room": "အခန်း",
+    "room_other": "အခန်း",
+    "bathroom": "ရေချိုးခန်း",
+    "bathroom_other": "ရေချိုးခန်း",
+    "available": "ရနိုင်သည်",
+    "rented": "ငှားပြီး",
+    "tryAgain": "ထပ်ကြိုးစားပါ",
+    "previous": "ရှေ့သို့",
+    "next": "နောက်သို့",
+    "pageOf": "စာမျက်နှာ {{page}} / {{totalPages}}",
+    "image": "ပုံ {{number}}"
+  },
+  "nav": {
+    "browse": "ရှာဖွေ",
+    "dashboard": "ဒက်ရှ်ဘုတ်",
+    "logout": "ထွက်ရန်",
+    "login": "ဝင်ရန်",
+    "signup": "စာရင်းသွင်းရန်"
+  },
+  "footer": {
+    "copyright": "© {{year}} Rent4U. မူပိုင်ခွင့်များ အားလုံးရယူထားသည်။",
+    "about": "အကြောင်း",
+    "privacy": "ကိုယ်ရေးအချက်အလက်",
+    "terms": "စည်းမျဉ်းများ"
+  },
+  "home": {
+    "heroTitle": "သင့်အတွက် ပြီးပြည့်စုံတဲ့ အားလပ်ရက် အိမ်ကို ရှာဖွေပါ",
+    "heroDescription": "သင့်နောက်ထပ် ခရီးစဉ်အတွက် လှပသော အိမ်များ၊ ဗီလာများနှင့် တိုက်ခန်းများကို ရှာဖွေပါ။ ဒေသခံ အိမ်ရှင်များထံမှ တိုက်ရိုက် ဘွတ်ကင်လုပ်ပါ။",
+    "browseHomes": "အိမ်များ ရှာဖွေရန်",
+    "featuredListings": "အထူးအိမ်များ",
+    "viewAll": "အားလုံးကြည့်ရန်"
+  },
+  "login": {
+    "title": "ပြန်လည်ကြိုဆိုပါသည်",
+    "subtitle": "သင့် ဘွတ်ကင်များနှင့် စာရင်းများကို စီမံခန့်ခွဲရန် ဝင်ပါ။",
+    "noAccount": "အကောင့်မရှိသေးဘူးလား?",
+    "signupLink": "စာရင်းသွင်းရန်"
+  },
+  "register": {
+    "title": "အကောင့်ဖန်တီးရန်",
+    "subtitle": "Rent4U တွင် ဘွတ်ကင်လုပ်ရန် သို့မဟုတ် အိမ်စာရင်းတင်ရန် ပါဝင်ပါ။",
+    "hasAccount": "အကောင့်ရှိပြီးသားလား?",
+    "loginLink": "ဝင်ရန်"
+  },
+  "search": {
+    "title": "တည်းခိုရန် နေရာ ရှာဖွေပါ"
+  },
+  "houseDetail": {
+    "notFound": "မတွေ့ပါ",
+    "notFoundMessage": "သင်ရှာဖွေနေသော အိမ်ခြံမြေ မရှိပါ။",
+    "browseAll": "အိမ်ခြံမြေအားလုံး ရှာဖွေရန်",
+    "loginToBook": "ဤအိမ်ခြံမြေကို ဘွတ်ကင်လုပ်ရန် ဝင်ပါ",
+    "loginLink": "ဝင်ရန်",
+    "aboutThisPlace": "ဤနေရာအကြောင်း",
+    "hostedBy": "အိမ်ရှင်",
+    "availableFrom": "{{date}} မှစ၍ ရနိုင်သည်"
+  },
+  "dashboard": {
+    "welcome": "ကြိုဆိုပါတယ်၊ {{name}}",
+    "manageBookingsAndListings": "သင့် ဘွတ်ကင်များနှင့် စာရင်းများကို စီမံခန့်ခွဲပါ။",
+    "manageBookings": "သင့် ဘွတ်ကင်များကို စီမံခန့်ခွဲပါ။",
+    "myListings": "ကျွန်ုပ်၏ စာရင်းများ",
+    "newListing": "+ စာရင်းအသစ်",
+    "myBookings": "ကျွန်ုပ်၏ ဘွတ်ကင်များ",
+    "noBookings": "ဘွတ်ကင် မရှိသေးပါ။",
+    "createNewListing": "စာရင်းအသစ် ဖန်တီးရန်",
+    "failedLoadListings": "စာရင်းများ ဖွင့်ရန် မအောင်မြင်ပါ",
+    "failedLoadBookings": "ဘွတ်ကင်များ ဖွင့်ရန် မအောင်မြင်ပါ"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "စာမျက်နှာ မတွေ့ပါ",
+    "message": "သင်ရှာဖွေနေသော စာမျက်နှာ မရှိပါ သို့မဟုတ် ရွှေ့ပြောင်းခဲ့ပါသည်။",
+    "goHome": "ပင်မသို့"
+  },
+  "loginForm": {
+    "email": "အီးမေးလ်",
+    "password": "စကားဝှက်",
+    "submit": "ဝင်ရန်",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "error": "ဝင်ရောက်ခြင်း မအောင်မြင်ပါ။ သင့်အချက်အလက်များကို စစ်ဆေးပါ။"
+  },
+  "registerForm": {
+    "fullName": "အမည်အပြည့်အစုံ",
+    "username": "အသုံးပြုသူအမည်",
+    "email": "အီးမေးလ်",
+    "password": "စကားဝှက်",
+    "submit": "အကောင့်ဖန်တီးရန်",
+    "namePlaceholder": "မောင်မောင်",
+    "usernamePlaceholder": "maungmaung",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "အနည်းဆုံး ၈ လုံး",
+    "error": "စာရင်းသွင်းခြင်း မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။"
+  },
+  "houseForm": {
+    "propertyName": "အိမ်ခြံမြေ အမည်",
+    "city": "မြို့",
+    "address": "လိပ်စာ",
+    "pricePerNight": "တစ်ညလျှင် ဈေးနှုန်း (MMK)",
+    "rooms": "အခန်း",
+    "bathrooms": "ရေချိုးခန်း",
+    "availableFrom": "ရရှိနိုင်သည့် ရက်စွဲ",
+    "description": "ဖော်ပြချက်",
+    "imageUrls": "ပုံ URLs",
+    "add": "ထည့်ရန်",
+    "createListing": "စာရင်းဖန်တီးရန်",
+    "updateListing": "စာရင်းပြင်ဆင်ရန်",
+    "error": "စာရင်းသိမ်းဆည်းခြင်း မအောင်မြင်ပါ။",
+    "propertyNamePlaceholder": "ကမ်းခြေအိမ်",
+    "cityPlaceholder": "ငပလီ",
+    "addressPlaceholder": "၁၂၃ ကမ်းခြေလမ်း",
+    "pricePlaceholder": "၅၀၀၀၀",
+    "roomsPlaceholder": "၃",
+    "bathroomsPlaceholder": "၂",
+    "descriptionPlaceholder": "သင့်အိမ်ခြံမြေအကြောင်း ဖော်ပြပါ...",
+    "imageUrlPlaceholder": "https://example.com/image.jpg"
+  },
+  "filters": {
+    "search": "ရှာဖွေရန်",
+    "city": "မြို့",
+    "minPrice": "အနိမ့်ဆုံးဈေး",
+    "maxPrice": "အမြင့်ဆုံးဈေး",
+    "rooms": "အခန်း",
+    "sortBy": "စီရန်",
+    "order": "အစဉ်",
+    "newest": "အသစ်ဆုံး",
+    "price": "ဈေးနှုန်း",
+    "descending": "ကြီးစဉ်ငယ်လိုက်",
+    "ascending": "ငယ်စဉ်ကြီးလိုက်",
+    "applyFilters": "စစ်ထုတ်ရန်",
+    "reset": "ပြန်လည်သတ်မှတ်ရန်",
+    "searchPlaceholder": "အမည်၊ ဖော်ပြချက်၊ မြို့...",
+    "cityPlaceholder": "မြို့တိုင်း",
+    "minPricePlaceholder": "၀",
+    "maxPricePlaceholder": "မည်သမျှ"
+  },
+  "houseGrid": {
+    "noHousesFound": "အိမ်များ မတွေ့ပါ"
+  },
+  "booking": {
+    "bookThisPlace": "ဤနေရာကို ဘွတ်ကင်လုပ်ရန်",
+    "bookNow": "ယခု ဘွတ်ကင်လုပ်ရန်",
+    "notAvailable": "မရနိုင်ပါ",
+    "disclaimer": "သင့်ကို ယခု ငွေကောက်ခံမည် မဟုတ်ပါ။ အတည်ပြုပြီးနောက် ငွေပေးချေမှု အသေးစိတ်ကို မျှဝေပါမည်။",
+    "error": "ဘွတ်ကင် မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။",
+    "pending": "ဆိုင်းငံ့",
+    "completed": "ပြီးစီး",
+    "failed": "မအောင်မြင်",
+    "refunded": "ပြန်အမ်း"
+  },
+  "language": {
+    "en": "English",
+    "my": "မြန်မာ"
+  }
+}

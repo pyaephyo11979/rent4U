@@ -1,10 +1,12 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../hooks/useAuth';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
 
 export function LoginForm() {
+  const { t } = useTranslation();
   const { login } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -22,7 +24,7 @@ export function LoginForm() {
     } catch (err: unknown) {
       const message =
         (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
-        'Login failed. Please check your credentials.';
+        t('loginForm.error');
       setError(message);
     } finally {
       setLoading(false);
@@ -37,25 +39,25 @@ export function LoginForm() {
         </div>
       )}
       <Input
-        label="Email"
+        label={t('loginForm.email')}
         type="email"
         name="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@example.com"
+        placeholder={t('loginForm.emailPlaceholder')}
         required
       />
       <Input
-        label="Password"
+        label={t('loginForm.password')}
         type="password"
         name="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="••••••••"
+        placeholder={t('loginForm.passwordPlaceholder')}
         required
       />
       <Button type="submit" loading={loading} className="w-full">
-        Log in
+        {t('loginForm.submit')}
       </Button>
     </form>
   );

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { houseApi } from '../../services/api';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
@@ -9,6 +10,7 @@ interface HouseFormProps {
 }
 
 export function HouseForm({ house, onSuccess }: HouseFormProps) {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     name: house?.name ?? '',
     city: house?.city ?? '',
@@ -69,7 +71,7 @@ export function HouseForm({ house, onSuccess }: HouseFormProps) {
     } catch (err: unknown) {
       const message =
         (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
-        'Failed to save listing.';
+        t('houseForm.error');
       setError(message);
     } finally {
       setLoading(false);
@@ -84,65 +86,65 @@ export function HouseForm({ house, onSuccess }: HouseFormProps) {
         </div>
       )}
       <Input
-        label="Property Name"
+        label={t('houseForm.propertyName')}
         name="name"
         value={form.name}
         onChange={(e) => updateField('name', e.target.value)}
-        placeholder="Beachfront Villa"
+        placeholder={t('houseForm.propertyNamePlaceholder')}
         required
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Input
-          label="City"
+          label={t('houseForm.city')}
           name="city"
           value={form.city}
           onChange={(e) => updateField('city', e.target.value)}
-          placeholder="Ngapali"
+          placeholder={t('houseForm.cityPlaceholder')}
           required
         />
         <Input
-          label="Address"
+          label={t('houseForm.address')}
           name="address"
           value={form.address}
           onChange={(e) => updateField('address', e.target.value)}
-          placeholder="123 Beach Road"
+          placeholder={t('houseForm.addressPlaceholder')}
           required
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Input
-          label="Price per night (MMK)"
+          label={t('houseForm.pricePerNight')}
           type="number"
           name="price"
           value={form.price}
           onChange={(e) => updateField('price', e.target.value)}
-          placeholder="50000"
+          placeholder={t('houseForm.pricePlaceholder')}
           required
           min={1}
         />
         <Input
-          label="Rooms"
+          label={t('houseForm.rooms')}
           type="number"
           name="rooms"
           value={form.rooms}
           onChange={(e) => updateField('rooms', e.target.value)}
-          placeholder="3"
+          placeholder={t('houseForm.roomsPlaceholder')}
           required
           min={1}
         />
         <Input
-          label="Bathrooms"
+          label={t('houseForm.bathrooms')}
           type="number"
           name="bathrooms"
           value={form.bathrooms}
           onChange={(e) => updateField('bathrooms', e.target.value)}
-          placeholder="2"
+          placeholder={t('houseForm.bathroomsPlaceholder')}
           required
           min={1}
         />
       </div>
       <Input
-        label="Available From"
+        label={t('houseForm.availableFrom')}
         type="date"
         name="dateAvailable"
         value={form.dateAvailable}
@@ -150,28 +152,28 @@ export function HouseForm({ house, onSuccess }: HouseFormProps) {
         required
       />
       <div className="space-y-1">
-        <label className="block text-sm font-medium text-gray-700">Description</label>
+        <label className="block text-sm font-medium text-gray-700">{t('houseForm.description')}</label>
         <textarea
           className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm transition-colors outline-none focus:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-0"
           rows={4}
           value={form.description}
           onChange={(e) => updateField('description', e.target.value)}
-          placeholder="Describe your property..."
+          placeholder={t('houseForm.descriptionPlaceholder')}
           required
         />
       </div>
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-700">Image URLs</label>
+        <label className="block text-sm font-medium text-gray-700">{t('houseForm.imageUrls')}</label>
         <div className="flex gap-2">
           <input
             type="url"
             className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary"
             value={newUrl}
             onChange={(e) => setNewUrl(e.target.value)}
-            placeholder="https://example.com/image.jpg"
+            placeholder={t('houseForm.imageUrlPlaceholder')}
           />
           <Button type="button" variant="secondary" size="sm" onClick={addImageUrl}>
-            Add
+            {t('houseForm.add')}
           </Button>
         </div>
         {imageUrls.length > 0 && (
@@ -181,7 +183,7 @@ export function HouseForm({ house, onSuccess }: HouseFormProps) {
                 key={i}
                 className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600"
               >
-                Image {i + 1}
+                {t('common.image', { number: i + 1 })}
                 <button
                   type="button"
                   onClick={() => removeImageUrl(i)}
@@ -195,7 +197,7 @@ export function HouseForm({ house, onSuccess }: HouseFormProps) {
         )}
       </div>
       <Button type="submit" loading={loading} className="w-full">
-        {house ? 'Update Listing' : 'Create Listing'}
+        {house ? t('houseForm.updateListing') : t('houseForm.createListing')}
       </Button>
     </form>
   );

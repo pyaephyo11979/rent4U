@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Layout } from '../components/layout/Layout';
 import { HouseGrid } from '../features/house/HouseGrid';
 import { BookingCard } from '../features/booking/BookingCard';
@@ -9,6 +10,7 @@ import { useAuth } from '../hooks/useAuth';
 import { houseApi, paymentApi } from '../services/api';
 
 export function DashboardPage() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const isHost = user?.role.name === 'Host' || user?.role.name === 'Admin';
 
@@ -27,11 +29,11 @@ export function DashboardPage() {
       const owned = data.data.filter((h) => h.ownerId === user?.id);
       setMyHouses(owned);
     } catch {
-      setError('Failed to load listings');
+      setError(t('dashboard.failedLoadListings'));
     } finally {
       setLoadingHouses(false);
     }
-  }, [isHost, user?.id]);
+  }, [isHost, user?.id, t]);
 
   const fetchPayments = useCallback(async () => {
     setLoadingPayments(true);
@@ -39,11 +41,11 @@ export function DashboardPage() {
       const { data } = await paymentApi.my();
       setMyPayments(data.data);
     } catch {
-      setError('Failed to load bookings');
+      setError(t('dashboard.failedLoadBookings'));
     } finally {
       setLoadingPayments(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     fetchHouses();
@@ -54,8 +56,8 @@ export function DashboardPage() {
     <Layout>
       <div className="px-4 md:px-8 lg:px-16 py-8 space-y-10">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Welcome, {user?.name}</h1>
-          <p className="text-muted mt-1">Manage your bookings{isHost ? ' and listings' : ''}.</p>
+          <h1 className="text-2xl font-bold text-gray-900">{t('dashboard.welcome', { name: user?.name })}</h1>
+          <p className="text-muted mt-1">{isHost ? t('dashboard.manageBookingsAndListings') : t('dashboard.manageBookings')}</p>
         </div>
 
         {error && (
@@ -67,9 +69,9 @@ export function DashboardPage() {
         {isHost && (
           <section>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold text-gray-900">My Listings</h2>
+              <h2 className="text-xl font-semibold text-gray-900">{t('dashboard.myListings')}</h2>
               <Button onClick={() => setShowCreateModal(true)}>
-                + New Listing
+                {t('dashboard.newListing')}
               </Button>
             </div>
             <HouseGrid
@@ -82,7 +84,7 @@ export function DashboardPage() {
         )}
 
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">My Bookings</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">{t('dashboard.myBookings')}</h2>
           {loadingPayments ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {Array.from({ length: 3 }).map((_, i) => (
@@ -95,7 +97,7 @@ export function DashboardPage() {
             </div>
           ) : myPayments.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-muted">No bookings yet.</p>
+              <p className="text-muted">{t('dashboard.noBookings')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -109,7 +111,7 @@ export function DashboardPage() {
 
       <Modal open={showCreateModal} onClose={() => setShowCreateModal(false)} className="max-w-2xl">
         <div className="p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Create New Listing</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{t('dashboard.createNewListing')}</h2>
           <HouseForm
             onSuccess={() => {
               setShowCreateModal(false);

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { HouseCard } from './HouseCard';
 import { Skeleton } from '../../components/ui/Skeleton';
 
@@ -33,6 +34,8 @@ function EmptyState({ message }: { message: string }) {
 }
 
 function ErrorMessage({ message, onRetry }: { message: string; onRetry?: () => void }) {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
       <p className="text-danger mb-4">{message}</p>
@@ -41,7 +44,7 @@ function ErrorMessage({ message, onRetry }: { message: string; onRetry?: () => v
           onClick={onRetry}
           className="text-sm font-medium text-primary hover:text-primary-hover underline"
         >
-          Try again
+          {t('common.tryAgain')}
         </button>
       )}
     </div>
@@ -49,6 +52,8 @@ function ErrorMessage({ message, onRetry }: { message: string; onRetry?: () => v
 }
 
 export function HouseGrid({ houses, loading, error, onRetry }: HouseGridProps) {
+  const { t } = useTranslation();
+
   if (loading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -60,7 +65,7 @@ export function HouseGrid({ houses, loading, error, onRetry }: HouseGridProps) {
   }
 
   if (error) return <ErrorMessage message={error} onRetry={onRetry} />;
-  if (houses.length === 0) return <EmptyState message="No houses found" />;
+  if (houses.length === 0) return <EmptyState message={t('houseGrid.noHousesFound')} />;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
